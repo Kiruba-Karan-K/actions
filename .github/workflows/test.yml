@@ -1,0 +1,14 @@
+name: Sample Workflow
+
+on: [push]
+
+jobs:
+  example-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Run a webserver
+        run: python3 -m simple.http 8000 & sleep 15
+      - name: Curl the site
+	run: curl http://localhost:8000/index.html 
