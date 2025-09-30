@@ -10,7 +10,10 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Run a webserver
-        run: python3 -m http.server
+        run: python3 -m http.server &
+
+      - name: Wait for 15 Sec
+        run: sleep 15
 
       - name: Curl the site
         run: curl http://localhost:8000/index.html 
